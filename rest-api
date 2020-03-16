@@ -1,0 +1,10 @@
+ADD AN ENTITY USING ATLAS REST API using KNOX SSO URL:
+
+# curl -ik -u arun.natva -H "Content-Type: application/json" -X POST -d '{"entity": {"typeName" : "hdfs_path", "attributes" : {"name" : "electionresults", "qualifiedName" : "electionresults.electionresults@Sandbox", "path" : "/user/dmaster/electionresults/ls2014.tsv", "clusterName":"Sandbox"}}}' https://knoxhostfqdn:8443/gateway/topology/atlas/api/atlas/v2/entity
+Enter host password for user 'arun.natva':
+HTTP/1.1 200 OK
+Date: Mon, 16 Mar 2020 19:46:44 GMT
+
+DELETE an entity in atlas using REST API:
+
+curl -ikv -u arun.natva -X DELETE https://knoxhostfqdn:8443/gateway/topology/atlas/api/atlas/entities?guid=7c1e172a-7825-435d-a92f-a4f97789b043
