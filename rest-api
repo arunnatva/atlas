@@ -8,3 +8,8 @@ Date: Mon, 16 Mar 2020 19:46:44 GMT
 DELETE an entity in atlas using REST API:
 
 curl -ikv -u arun.natva -X DELETE https://knoxhostfqdn:8443/gateway/topology/atlas/api/atlas/entities?guid=7c1e172a-7825-435d-a92f-a4f97789b043
+
+A classification can be added to an existing Hive table using bulk API or a regular API as shown below. The GUID(s) of the table(s) should be provided in the call. 
+
+$ curl -iku csso_arunnatva -H "Content-Type: application/json" -X POST https://atlas.host:31443/api/atlas/v2/entity/bulk/classification -d '{"classification":{"typeName":"Test_CLS","attributes":{"attr1":"value1","attr2":"true"},"propagate":false,"removePropagationsOnEntityDelete":false,"validityPeriods":[]},"entityGuids":["59867a21-1096-40c3-9c56-54baeac9d4a2"]}'
+$ curl -iku csso_arunnatva -H "Content-Type: application/json" -X POST  https://atlas.host:31443/api/atlas/v2/entity/guid/d360ab23-24b6-42e7-a8cc-166cfad8a7f2/classifications  -d '[{"typeName": "Test_CLS", "attributes": {"attr1": "value1","attr2": false}}]'
